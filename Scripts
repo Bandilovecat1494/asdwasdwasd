@@ -1,0 +1,33 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Hungry Pig script [Halfly Patched]", "GrapeTheme")
+--Main--
+local MainTab = Window:NewTab("Main")
+local MainSection = MainTab:NewSection("Main")
+local LocalTab = Window:NewTab("Player")
+local PlaySection = LocalTab:NewSection("Local")
+MainSection:NewButton("Goto Pig", "Tp", function()
+	local Character = game.Players.LocalPlayer.Character
+	local Enemy1C = game.Workspace.Pigs.Enemy1.HumanoidRootPart
+	Character.HumanoidRootPart.CFrame = Enemy1C.CFrame
+end)
+MainSection:NewButton("Goto Brother Pig", "Tp", function()
+	local Character = game.Players.LocalPlayer.Character
+	local Enemy1C = game.Workspace.Pigs.Enemy2.HumanoidRootPart
+	Character.HumanoidRootPart.CFrame = Enemy1C.CFrame
+end)
+MainSection:NewButton("Goto Fathers Pig", "Tp", function()
+	local Character = game.Players.LocalPlayer.Character
+	local Enemy1C = game.Workspace.Pigs.Enemy3.HumanoidRootPart
+	Character.HumanoidRootPart.CFrame = Enemy1C.CFrame
+end)
+MainSection:NewButton("Goto Mother Pig", "Tp", function()
+	local Character = game.Players.LocalPlayer.Character
+	local Enemy1C = game.Workspace.Pigs.Enemy4.HumanoidRootPart
+	Character.HumanoidRootPart.CFrame = Enemy1C.CFrame
+end)
+PlaySection:NewSlider("Speed", "Speed up", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+PlaySection:NewSlider("Jump Power", "Higher The better", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
