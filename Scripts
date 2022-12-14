@@ -1,10 +1,12 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Hungry Pig script [Halfly Patched]", "GrapeTheme")
+local Window = Library.CreateLib("Hungry Pig script [Fixed And Lookin Better]", "Ocean")
 --Main--
 local MainTab = Window:NewTab("Main")
 local MainSection = MainTab:NewSection("Main")
 local LocalTab = Window:NewTab("Player")
 local PlaySection = LocalTab:NewSection("Local")
+local ExtraTab = Window:NewTab("Extra Stuff")
+local ExtraSection = ExtraTab:NewSection("Extra")
 MainSection:NewButton("Goto Pig", "Tp", function()
 	local Character = game.Players.LocalPlayer.Character
 	local Enemy1C = game.Workspace.Pigs.Enemy1.HumanoidRootPart
@@ -24,6 +26,12 @@ MainSection:NewButton("Goto Mother Pig", "Tp", function()
 	local Character = game.Players.LocalPlayer.Character
 	local Enemy1C = game.Workspace.Pigs.Enemy4.HumanoidRootPart
 	Character.HumanoidRootPart.CFrame = Enemy1C.CFrame
+end)
+ExtraSection:NewButton("Hard Reset", "Hard Reset", function()
+	game.Players.LocalPlayer.Character.Humanoid:Remove()
+end)
+ExtraSection:NewButton("Reset", "Reset", function()
+	game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").Health = -900
 end)
 PlaySection:NewSlider("Speed", "Speed up", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
