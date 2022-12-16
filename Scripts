@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Hungry Pig script [Fixed And Lookin Better]", "Ocean")
+local Window = Library.CreateLib("Hungry Pig script [Fixed And Lookin Better]", "Midnight")
 --Main--
 local MainTab = Window:NewTab("Main")
 local MainSection = MainTab:NewSection("Main")
@@ -7,6 +7,7 @@ local LocalTab = Window:NewTab("Player")
 local PlaySection = LocalTab:NewSection("Local")
 local ExtraTab = Window:NewTab("Extra Stuff")
 local ExtraSection = ExtraTab:NewSection("Extra")
+local ExtraSectionOP = ExtraTab:NewSection("OP")
 MainSection:NewButton("Goto Pig", "Tp", function()
 	local Character = game.Players.LocalPlayer.Character
 	local Enemy1C = game.Workspace.Pigs.Enemy1.HumanoidRootPart
@@ -30,6 +31,15 @@ end)
 ExtraSection:NewButton("Hard Reset", "Hard Reset", function()
 	game.Players.LocalPlayer.Character.Humanoid:Remove()
 end)
+ExtraSection:NewButton("Load Map1", "Hard Reset", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Bandilovecat1494/ExtraModdedMapLoader/main/Map1"))()
+end)
+ExtraSectionOP:NewButton("Delete Walls", "Hard Reset", function()
+	game.Workspace.Bushes:Destroy()
+end)
+ExtraSection:NewButton("Spawn To Map1 [Require Map1 To be Loaded]", "Hard Reset", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.ExtraModdedMap.CF.CFrame
+end)
 ExtraSection:NewButton("Reset", "Reset", function()
 	game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").Health = -900
 end)
@@ -38,4 +48,35 @@ PlaySection:NewSlider("Speed", "Speed up", 500, 16, function(s) -- 500 (MaxValue
 end)
 PlaySection:NewSlider("Jump Power", "Higher The better", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+ExtraSectionOP:NewButton("ESP Pigs", "ESP", function()
+	print("Loading ESP/HighLights...")
+    local esp = Instance.new("Highlight")
+   local Enemy1 = game.Workspace.Pigs.Enemy1
+   local Enemy2 = game.Workspace.Pigs.Enemy2
+   local Enemy3 = game.Workspace.Pigs.Enemy3
+   local Enemy4 = game.Workspace.Pigs.Enemy4
+    esp.FillTransparency = 0.5
+    esp.FillColor = Color3.new(196, 68, 148)
+    esp.OutlineColor = Color3.new(0, 0 ,0)
+    esp.OutlineTransparency = 0
+    esp.Parent = Enemy1
+        local esp = Instance.new("Highlight")
+    esp.FillTransparency = 0.5
+    esp.FillColor = Color3.new(196, 68, 148)
+    esp.OutlineColor = Color3.new(0, 0 ,0)
+    esp.OutlineTransparency = 0
+    esp.Parent = Enemy2
+        local esp = Instance.new("Highlight")
+    esp.FillTransparency = 0.5
+    esp.FillColor = Color3.new(196, 68, 148)
+    esp.OutlineColor = Color3.new(0, 0 ,0)
+    esp.OutlineTransparency = 0
+    esp.Parent = Enemy3
+        local esp = Instance.new("Highlight")
+    esp.FillTransparency = 0.5
+    esp.FillColor = Color3.new(196, 68, 148)
+    esp.OutlineColor = Color3.new(0, 0 ,0)
+    esp.OutlineTransparency = 0
+    esp.Parent = Enemy4
 end)
